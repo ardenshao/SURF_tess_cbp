@@ -1,0 +1,22 @@
+--2024-06-21 13:36:48--  http://exoplanetarchive.ipac.caltech.edu/data/ETSS//SuperWASP/FITS/DR1/tile126120/1SWASP%20J083438.80+313314.7.fits
+Resolving exoplanetarchive.ipac.caltech.edu (exoplanetarchive.ipac.caltech.edu)... 134.4.54.151
+Connecting to exoplanetarchive.ipac.caltech.edu (exoplanetarchive.ipac.caltech.edu)|134.4.54.151|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://exoplanetarchive.ipac.caltech.edu/data/ETSS//SuperWASP/FITS/DR1/tile126120/1SWASP J083438.80+313314.7.fits [following]
+--2024-06-21 13:36:49--  https://exoplanetarchive.ipac.caltech.edu/data/ETSS//SuperWASP/FITS/DR1/tile126120/1SWASP%20J083438.80+313314.7.fits
+Connecting to exoplanetarchive.ipac.caltech.edu (exoplanetarchive.ipac.caltech.edu)|134.4.54.151|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 406080 (397K) [image/fits]
+Saving to: ‘1SWASP J083438.80+313314.7.fits’
+
+     0K .......... .......... .......... .......... .......... 12%  152K 2s
+    50K .......... .......... .......... .......... .......... 25%  309K 1s
+   100K .......... .......... .......... .......... .......... 37% 19.5M 1s
+   150K .......... .......... .......... .......... .......... 50% 35.4M 0s
+   200K .......... .......... .......... .......... .......... 63%  312K 0s
+   250K .......... .......... .......... .......... .......... 75% 14.1M 0s
+   300K .......... .......... .......... .......... .......... 88% 27.4M 0s
+   350K .......... .......... .......... .......... ......    100% 42.4M=0.7s
+
+2024-06-21 13:36:50 (600 KB/s) - ‘1SWASP J083438.80+313314.7.fits’ saved [406080/406080]
+
