@@ -1,0 +1,26 @@
+\OBJNAME = '1SWASP J193841.18+545825.6'
+\OBSSTART = '2007-05-14T05:05:55'
+\OBSSTOP = '2008-08-05T02:58:17'
+\TSTART = 106203959
+\TSTOP = 144990050
+\JD_REF = 2453005.5
+\RA_OBJ = '294.671594'
+\DEC_OBJ = '54.973789'
+\WASP_MAG = 6.818376
+\HJD_START = 2454234.712488
+\HJD_STOP = 2454683.625579
+\fixlen = T
+\NUMRECORDS = 4
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Mon Sep 16, 09:54:25 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+  106203959   5.491979e+03   1.307158e+01   5.491979e+03   1.307158e+01 145200705140505550      27120       7640     0 2454234.712488  5.650678e+00  2.584193e-03  5.650678e+00  2.584193e-03 
+  107482705   1.721450e-01   6.293504e-01   1.721450e-01   6.293504e-01 145200705290017470      25952      10205     0 2454249.512789  1.691026e+01  3.969392e+00  1.691026e+01  3.969392e+00 
+  107482743   4.750156e-01   6.132945e-01   4.750156e-01   6.132945e-01 145200705290018250      25949      10198     0 2454249.513229  1.580823e+01  1.401803e+00  1.580823e+01  1.401803e+00 
+  144990050   2.001307e+03   9.648378e+00   2.001307e+03   9.648378e+00 145200808050258170        953      27352     0 2454683.625579  6.746716e+00  5.234394e-03  6.746716e+00  5.234394e-03 

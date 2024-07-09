@@ -1,0 +1,27 @@
+\OBJNAME = '1SWASP J024603.03-565600.5'
+\OBSSTART = '2006-12-17T20:19:39'
+\OBSSTOP = '2007-12-12T19:35:32'
+\TSTART = 93471607
+\TSTOP = 124572980
+\JD_REF = 2453005.5
+\RA_OBJ = '41.512628'
+\DEC_OBJ = '-56.933478'
+\WASP_MAG = 9.687685
+\HJD_START = 2454087.347303
+\HJD_STOP = 2454447.316898
+\fixlen = T
+\NUMRECORDS = 5
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Tue Sep 17, 13:42:50 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   93471607   1.398782e+02   2.326197e-01   1.398782e+02   2.326197e-01 226200612172019390      20466      23999     0 2454087.347303  9.635625e+00  1.805604e-03  9.635625e+00  1.805604e-03 
+   93474697   1.396638e+02   2.316587e-01   1.396638e+02   2.316587e-01 226200612172111080      20451      23839     0 2454087.383067  9.637290e+00  1.800904e-03  9.637290e+00  1.800904e-03 
+  124570640   1.285392e+02   2.799116e-01   1.285392e+02   2.799116e-01 225200712121856320       9714      28467     0 2454447.289815  9.727411e+00  2.364347e-03  9.727411e+00  2.364347e-03 
+  124571772   1.293524e+02   2.690004e-01   1.293524e+02   2.690004e-01 225200712121915250       9673      28500     0 2454447.302917  9.720564e+00  2.257898e-03  9.720564e+00  2.257898e-03 
+  124572980   1.292133e+02   2.692204e-01   1.292133e+02   2.692204e-01 225200712121935320       9655      28431     0 2454447.316898  9.721732e+00  2.262177e-03  9.721732e+00  2.262177e-03 

@@ -1,0 +1,24 @@
+\OBJNAME = '1SWASP J083424.36-544003.1'
+\OBSSTART = '2007-02-04T00:23:55'
+\OBSSTOP = '2007-05-27T17:31:42'
+\TSTART = 97633605
+\TSTOP = 107371948
+\JD_REF = 2453005.5
+\RA_OBJ = '128.601539'
+\DEC_OBJ = '-54.667531'
+\WASP_MAG = 8.264232
+\HJD_START = 2454135.518576
+\HJD_STOP = 2454248.230880
+\fixlen = T
+\NUMRECORDS = 2
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Tue Sep 17, 14:26:11 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   97633605   5.142550e+02   1.096143e+00   5.142550e+02   1.096143e+00 226200702040023550      32301       2928     0 2454135.518576  8.222054e+00  2.314273e-03  8.222054e+00  2.314273e-03 
+  107371948   4.750665e+02   6.054857e-01   4.750665e+02   6.054857e-01 226200705271731420      32222       2730     0 2454248.230880  8.308114e+00  1.383806e-03  8.308114e+00  1.383806e-03 

@@ -1,0 +1,26 @@
+\OBJNAME = '1SWASP J080047.99-605156.5'
+\OBSSTART = '2007-02-03T22:17:51'
+\OBSSTOP = '2007-05-27T16:51:42'
+\TSTART = 97625983
+\TSTOP = 107369549
+\JD_REF = 2453005.5
+\RA_OBJ = '120.199978'
+\DEC_OBJ = '-60.8657'
+\WASP_MAG = 13.72679
+\HJD_START = 2454135.430359
+\HJD_STOP = 2454248.203113
+\fixlen = T
+\NUMRECORDS = 4
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Fri Sep 13, 23:59:05 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   97625983   3.406125e+00   2.328733e-01   3.406125e+00   2.328733e-01 226200702032217510       4888      17257     0 2454135.430359  1.366935e+01  7.423093e-02  1.366935e+01  7.423093e-02 
+   97634235   3.467460e+00   2.574121e-01   3.467460e+00   2.574121e-01 226200702040035220       4819      16813     0 2454135.525868  1.364997e+01  8.060155e-02  1.364997e+01  8.060155e-02 
+  107368867   2.937229e+00   2.324561e-01   2.937229e+00   2.324561e-01 226200705271640210       4817      16873     0 2454248.195220  1.383016e+01  8.592688e-02  1.383016e+01  8.592688e-02 
+  107369549   3.111635e+00   1.851434e-01   3.111635e+00   1.851434e-01 226200705271651420       4826      16862     0 2454248.203113  1.376753e+01  6.460194e-02  1.376753e+01  6.460194e-02 

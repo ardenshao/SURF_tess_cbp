@@ -1,0 +1,28 @@
+\OBJNAME = '1SWASP J205912.06+632812.8'
+\OBSSTART = '2006-12-01T19:15:48'
+\OBSSTOP = '2008-07-21T04:17:56'
+\TSTART = 92085447
+\TSTOP = 143698737
+\JD_REF = 2453005.5
+\RA_OBJ = '314.800272'
+\DEC_OBJ = '63.470242'
+\WASP_MAG = 11.72101
+\HJD_START = 2454071.303785
+\HJD_STOP = 2454668.679826
+\fixlen = T
+\NUMRECORDS = 6
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Sat Sep 14, 02:32:13 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   92085447   2.107799e+01   2.862863e-01   2.107799e+01   2.862863e-01 148200612011915480       6267       5966     0 2454071.303785  1.169043e+01  1.474678e-02  1.169043e+01  1.474678e-02 
+   92085902   2.111057e+01   2.667283e-01   2.111057e+01   2.667283e-01 148200612011923240       6197       6009     0 2454071.309051  1.168875e+01  1.371813e-02  1.168875e+01  1.371813e-02 
+   92086367   1.949018e+01   2.608475e-01   1.949018e+01   2.608475e-01 148200612011931080       6124       6053     0 2454071.314433  1.177546e+01  1.453103e-02  1.177546e+01  1.453103e-02 
+  143696185   2.120980e+01   4.825365e-01   2.120980e+01   4.825365e-01 148200807210335240       6963       4996     0 2454668.650289  1.168366e+01  2.470128e-02  1.168366e+01  2.470128e-02 
+  143698699   2.060914e+01   5.108626e-01   2.060914e+01   5.108626e-01 148200807210417180       6816       5062     0 2454668.679387  1.171485e+01  2.691349e-02  1.171485e+01  2.691349e-02 
+  143698737   1.945818e+01   5.137222e-01   1.945818e+01   5.137222e-01 148200807210417560       6811       5065     0 2454668.679826  1.177724e+01  2.866501e-02  1.177724e+01  2.866501e-02 

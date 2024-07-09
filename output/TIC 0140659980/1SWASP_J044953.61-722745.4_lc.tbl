@@ -1,0 +1,27 @@
+\OBJNAME = '1SWASP J044953.61-722745.4'
+\OBSSTART = '2006-12-17T20:19:39'
+\OBSSTOP = '2007-01-20T20:27:31'
+\TSTART = 93471540
+\TSTOP = 96409595
+\JD_REF = 2453005.5
+\RA_OBJ = '72.473397'
+\DEC_OBJ = '-72.462628'
+\WASP_MAG = 9.380733
+\HJD_START = 2454087.346528
+\HJD_STOP = 2454121.351794
+\fixlen = T
+\NUMRECORDS = 5
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Sat Sep 14, 02:47:37 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   93471540   1.740403e+02   3.024914e-01   1.740403e+02   3.024914e-01 221200612172019390      11796      31758     0 2454087.346528  9.398376e+00  1.887075e-03  9.398376e+00  1.887075e-03 
+   93474630   1.731522e+02   3.025828e-01   1.731522e+02   3.025828e-01 221200612172111080      11785      31888     0 2454087.382292  9.403931e+00  1.897327e-03  9.403931e+00  1.897327e-03 
+   93477760   1.733132e+02   3.031057e-01   1.733132e+02   3.031057e-01 221200612172203190      11826      32014     0 2454087.418519  9.402921e+00  1.898839e-03  9.402921e+00  1.898839e-03 
+   96405289   1.837965e+02   2.746825e-01   1.837965e+02   2.746825e-01 221200701201915450      10979      22183     0 2454121.301956  9.339157e+00  1.622630e-03  9.339157e+00  1.622630e-03 
+   96409595   1.801549e+02   3.151464e-01   1.801549e+02   3.151464e-01 221200701202027310      12736      31924     0 2454121.351794  9.360885e+00  1.899294e-03  9.360885e+00  1.899294e-03 

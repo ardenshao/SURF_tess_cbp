@@ -1,0 +1,28 @@
+\OBJNAME = '1SWASP J081437.76-683131.6'
+\OBSSTART = '2007-02-03T22:17:51'
+\OBSSTOP = '2007-05-27T17:31:42'
+\TSTART = 97625923
+\TSTOP = 107371999
+\JD_REF = 2453005.5
+\RA_OBJ = '123.657361'
+\DEC_OBJ = '-68.52545'
+\WASP_MAG = 11.80132
+\HJD_START = 2454135.429664
+\HJD_STOP = 2454248.231470
+\fixlen = T
+\NUMRECORDS = 6
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Thu Sep 19, 12:46:31 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   97625923   2.041285e+01   3.530587e-01   2.041285e+01   3.530587e-01 223200702032217510       5291       5102     0 2454135.429664  1.172524e+01  1.877886e-02  1.172524e+01  1.877886e-02 
+   97633487   1.725013e+01   1.633147e+00   1.725013e+01   1.633147e+00 223200702040023550       5260       4842     0 2454135.517211  1.190802e+01  1.027919e-01  1.190802e+01  1.027919e-01 
+   97634175   2.069988e+01   3.882296e-01   2.069988e+01   3.882296e-01 223200702040035220       5241       4788     0 2454135.525174  1.171008e+01  2.036323e-02  1.171008e+01  2.036323e-02 
+  107368918   1.961352e+01   3.416251e-01   1.961352e+01   3.416251e-01 223200705271640210       5292       4830     0 2454248.195810  1.176861e+01  1.891124e-02  1.176861e+01  1.891124e-02 
+  107369600   1.825026e+01   2.720967e-01   1.825026e+01   2.720967e-01 223200705271651420       5286       4823     0 2454248.203704  1.184683e+01  1.618751e-02  1.184683e+01  1.618751e-02 
+  107371999   1.796235e+01   2.706475e-01   1.796235e+01   2.706475e-01 223200705271731420       5246       4700     0 2454248.231470  1.186409e+01  1.635937e-02  1.186409e+01  1.635937e-02 

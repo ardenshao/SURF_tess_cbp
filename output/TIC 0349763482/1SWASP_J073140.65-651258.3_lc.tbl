@@ -1,0 +1,27 @@
+\OBJNAME = '1SWASP J073140.65-651258.3'
+\OBSSTART = '2007-02-03T22:17:51'
+\OBSSTOP = '2007-05-27T17:31:42'
+\TSTART = 97625938
+\TSTOP = 107371952
+\JD_REF = 2453005.5
+\RA_OBJ = '112.919375'
+\DEC_OBJ = '-65.216211'
+\WASP_MAG = 11.67675
+\HJD_START = 2454135.429838
+\HJD_STOP = 2454248.230926
+\fixlen = T
+\NUMRECORDS = 5
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Sat Sep 14, 21:40:01 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   97625938   2.215182e+01   3.172959e-01   2.215182e+01   3.172959e-01 223200702032217510      14001      24804     0 2454135.429838  1.163648e+01  1.555181e-02  1.163648e+01  1.555181e-02 
+   97634191   2.271052e+01   3.588212e-01   2.271052e+01   3.588212e-01 223200702040035220      13944      24492     0 2454135.525359  1.160943e+01  1.715446e-02  1.160943e+01  1.715446e-02 
+  107368871   2.096723e+01   3.158449e-01   2.096723e+01   3.158449e-01 223200705271640210      14012      24530     0 2454248.195266  1.169615e+01  1.635530e-02  1.169615e+01  1.635530e-02 
+  107369553   2.025741e+01   2.509325e-01   2.025741e+01   2.509325e-01 223200705271651420      14003      24523     0 2454248.203160  1.173354e+01  1.344927e-02  1.173354e+01  1.344927e-02 
+  107371952   2.063912e+01   2.519502e-01   2.063912e+01   2.519502e-01 223200705271731420      13967      24398     0 2454248.230926  1.171327e+01  1.325407e-02  1.171327e+01  1.325407e-02 

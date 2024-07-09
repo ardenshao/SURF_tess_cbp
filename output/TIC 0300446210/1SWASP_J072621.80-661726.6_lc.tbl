@@ -1,0 +1,28 @@
+\OBJNAME = '1SWASP J072621.80-661726.6'
+\OBSSTART = '2007-02-03T22:17:51'
+\OBSSTOP = '2007-05-27T17:31:42'
+\TSTART = 97625928
+\TSTOP = 107371956
+\JD_REF = 2453005.5
+\RA_OBJ = '111.590836'
+\DEC_OBJ = '-66.290731'
+\WASP_MAG = 11.81812
+\HJD_START = 2454135.429722
+\HJD_STOP = 2454248.230972
+\fixlen = T
+\NUMRECORDS = 6
+\
+\ This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu 
+\ Wed Sep 11, 16:20:50 2013
+\ Documentation for the SuperWASP dataset can be found at http://exoplanetarchive.ipac.caltech.edu/docs/SuperWASPMission.html
+\
+|TMID      |FLUX2         |FLUX2_ERR     |TAMFLUX2      |TAMFLUX2_ERR  |IMAGEID           |CCDX      |CCDY      |FLAG |           HJD|         MAG2|     MAG2_ERR|      TAMMAG2|  TAMMAG2_ERR|
+|int       |float         |float         |float         |float         |char              |int       |int       |int  |        double|        float|        float|        float|        float|
+|sec       |micro Vega    |micro Vega    |micro Vega    |micro Vega    |                  |1/16 pixel|1/16 pixel|     |           day|          mag|          mag|          mag|          mag|
+|null      |null          |null          |null          |null          |null              |null      |null      |null |          null|         null|         null|         null|         null|
+   97625928   2.040964e+01   3.256583e-01   2.040964e+01   3.256583e-01 223200702032217510       9186      25413     0 2454135.429722  1.172541e+01  1.732417e-02  1.172541e+01  1.732417e-02 
+   97633492   1.452696e+01   1.488488e+00   1.452696e+01   1.488488e+00 223200702040023550       9145      25155     0 2454135.517269  1.209456e+01  1.112491e-01  1.209456e+01  1.112491e-01 
+   97634180   2.015296e+01   3.657040e-01   2.015296e+01   3.657040e-01 223200702040035220       9130      25099     0 2454135.525231  1.173915e+01  1.970229e-02  1.173915e+01  1.970229e-02 
+  107368875   1.949779e+01   3.261039e-01   1.949779e+01   3.261039e-01 223200705271640210       9197      25141     0 2454248.195312  1.177504e+01  1.815919e-02  1.177504e+01  1.815919e-02 
+  107369557   1.900154e+01   2.570299e-01   1.900154e+01   2.570299e-01 223200705271651420       9188      25134     0 2454248.203206  1.180303e+01  1.468658e-02  1.180303e+01  1.468658e-02 
+  107371956   1.884646e+01   2.577212e-01   1.884646e+01   2.577212e-01 223200705271731420       9153      25009     0 2454248.230972  1.181192e+01  1.484725e-02  1.181192e+01  1.484725e-02 
