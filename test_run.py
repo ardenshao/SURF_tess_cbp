@@ -275,7 +275,7 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
     plt.show()
 
     # write predicted periods to csv file
-    tess_eb_df = pd.read_csv('tess_ebs_data copy.csv')
+    tess_eb_df = pd.read_csv('tess_ebs_data.csv')
     
     filtered_row = tess_eb_df[tess_eb_df['tid'] == tid]
     
@@ -375,7 +375,7 @@ def get_row_by_tid(tid):
     return filtered_df.iloc[0]
 
 def check_files_exist(files, prefixes):
-    return any(file.startswith(prefix) for file in files for prefix in prefixes)
+    return all(any(file.startswith(prefix) for prefix in prefixes) for file in files)
 
 def extract_index(string):
     reversed_string = string[::-1]
@@ -422,4 +422,4 @@ if os.path.isdir(item_path) and item in no_kelt_tids:
         fold_periods = automate_periodogram(tid, primary_transit, secondary_transit, 
                                             min_period, max_period)
 
-        detect_precession_bokeh(tid, fold_periods, primary_transit, scondary_transit)
+        detect_precession_bokeh(tid, fold_periods, primary_transit, secondary_transit)
