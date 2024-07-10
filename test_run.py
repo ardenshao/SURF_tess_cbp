@@ -1,16 +1,13 @@
-import requests
 import sys
-import re
 from astropy.table import Table
 import numpy as np
 import matplotlib.pyplot as plt
 import lightkurve as lk
-from lightkurve import search_lightcurvefile
 import pandas as pd
 import os
 import warnings
 import math
-import pyvo
+from sklearn.linear_model import LinearRegression
 from lightkurve import search_lightcurve
 from bokeh.plotting import figure, output_file, show, save
 from bokeh.layouts import gridplot
@@ -96,7 +93,6 @@ def chi_squared(tess_df, comparison_df, period, transit):
 
 
     comparison_err = np.std(folded_comparison_df['flux'])
-    chi_squared_values = []
     chi_squared_sum = 0
     
     for _, row in folded_comparison_df.iterrows():
@@ -193,7 +189,7 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
     asassn_df = pd.DataFrame(asassn_detrended)
 
 
-    for item in os.listdir(base_dir):
+    for _ in os.listdir(base_dir):
         
         # attempt to open the file starting with "1SWASP"
         for filename in os.listdir(base_dir):
@@ -340,42 +336,15 @@ def round_to_decimal_place(num, decimal_places=3):
     
     return lower_num, upper_num
 
-df = pd.read_csv('tess_ebs_data.csv')
-
-no_kelt_tids = []
-for index, row in df.iterrows():
-    tid = row['tid']
-    ra = row['ra']
-    dec = row['dec']
-    
-    lower_ra, upper_ra = round_to_decimal_place(ra, decimal_places=3)
-    lower_dec, upper_dec = round_to_decimal_place(dec, decimal_places=3)
-    
-    tap_service_url = "https://exoplanetarchive.ipac.caltech.edu/TAP"
-    tap_service = pyvo.dal.TAPService(tap_service_url)
-    
-    # kelt
-    adql_query = f"""
-    SELECT *
-    FROM kelttimeseries	
-    WHERE kelttimeseries.ra>{lower_ra} AND kelttimeseries.ra<{upper_ra} AND
-          kelttimeseries.dec>{lower_dec} AND kelttimeseries.dec<{upper_dec}
-    """
-    
-    result = tap_service.search(adql_query)
-    light_curve = result.to_table()
-    
-    if len(light_curve) == 0:
-        no_kelt_tids.append(tid)
-
-base_dir = "output/"
 
 def get_row_by_tid(tid):
     filtered_df = df[df['tid'] == tid]
     return filtered_df.iloc[0]
 
+
 def check_files_exist(files, prefixes):
     return all(any(file.startswith(prefix) for prefix in prefixes) for file in files)
+
 
 def extract_index(string):
     reversed_string = string[::-1]
@@ -388,6 +357,13 @@ def extract_index(string):
         else:
             return int(empty_string[::-1])
         index += 1
+
+
+df = pd.read_csv('tess_ebs_data.csv')
+base_dir = "output/"
+
+with open("no_kelt_tids.txt", "r") as file:
+    no_kelt_tids = [line.strip() for line in file]
 
 items = os.listdir(base_dir)
 prefixes = ["1SWASP", "asas_sn_id"]
