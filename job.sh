@@ -5,5 +5,5 @@
 #PBS -J 0-542
 module load python/3.10.8
 source ~/environments/my_env/bin/activate
-cd /srv/scratch/z3545913/surf:summer
-python3 -u test_run.py
+cd /srv/scratch/z3545913/surf
+python3 -u test_run.py Label_Run_files/${PBS_ARRAY_INDEX}.npy

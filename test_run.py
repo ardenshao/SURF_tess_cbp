@@ -1,8 +1,10 @@
+import re
 import sys
 from astropy.table import Table
 import numpy as np
 import matplotlib.pyplot as plt
 import lightkurve as lk
+from lightkurve import search_lightcurvefile
 import pandas as pd
 import os
 import warnings
@@ -38,6 +40,10 @@ def filter_data_around_transits(df, transit_times, window=2):
 def filter_data(df, quality, flux_threshold):
     """Filter data based on quality and flux."""
     return df[(df['quality'] == quality) & (df['flux'] >= flux_threshold)]
+
+
+def is_substring(long_string, short_string):
+    return long_string.find(short_string) != -1
 
 
 def detrend_data(df):
@@ -125,12 +131,22 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
     Displays a plot of the best predicted period by lowest chi-squared.
     """
     # get the TESS data
-    try:
-        tid_str = str(tid)
-        search_result = search_lightcurve(tid_str, mission='TESS')
-        tess_lc = search_result.download().remove_nans().normalize()
-    except Exception as e:
-        print(f"Error processing {tid} ({type(e).__name__}): {e}")
+    directory_path = os.path.expanduser('~/.lightkurve/cache/mastDownload/TESS')
+
+    items = os.listdir(directory_path)
+
+    numbers = re.search(r'\d+', tid)
+    long_id = '000000' + numbers[0]
+
+    for item in items:
+        if is_substring(item, long_id):
+            file_path = item
+            break
+
+    path = os.path.join(directory_path, file_path)
+    file = os.listdir(path)[0]
+    combined_filepath = os.path.join(path, file)
+    tess_lc = lk.read(combined_filepath).remove_nans().normalize()
 
     # detrend method requires a df, so convert tess_lc to a dataframe
     tess_df = pd.DataFrame({
@@ -305,7 +321,7 @@ def detect_precession_bokeh(tid, fold_periods, primary_transit, secondary_transi
             for marker, color in marker_to_color.items():
                 marker_df = df[df['dataset_marker'] == marker]
                 shape = marker_to_shape.get(marker, 'o')  
-                folded_lc = LightCurve(time=marker_df['jd'], flux=marker_df['flux']).fold(period=period, epoch_time=transit)
+                folded_lc = lk.LightCurve(time=marker_df['jd'], flux=marker_df['flux']).fold(period=period, epoch_time=transit)
                 
                 # Set alpha based on dataset proportion
                 alpha = dataset_proportions.loc[marker]  # Assuming the index is the marker name
@@ -343,7 +359,7 @@ def get_row_by_tid(tid):
 
 
 def check_files_exist(files, prefixes):
-    return all(any(file.startswith(prefix) for prefix in prefixes) for file in files)
+    return all(any(file.startswith(prefix) for file in files) for prefix in prefixes)
 
 
 def extract_index(string):
@@ -359,12 +375,16 @@ def extract_index(string):
         index += 1
 
 
-df = pd.read_csv('tess_ebs_data.csv')
+# specify data directories and read in object info from csv file
+tess_directory_path = os.path.expanduser('~/.lightkurve/cache/mastDownload/TESS')
 base_dir = "output/"
+df = pd.read_csv('tess_ebs_data.csv')
 
+# read in the list of tids that do not have KELT data
 with open("no_kelt_tids.txt", "r") as file:
     no_kelt_tids = [line.strip() for line in file]
 
+# all the tids, note: 'item' is the tid here
 items = os.listdir(base_dir)
 prefixes = ["1SWASP", "asas_sn_id"]
 
@@ -380,22 +400,35 @@ if os.path.isdir(item_path) and item in no_kelt_tids:
     
     if check_files_exist(files_in_directory, prefixes):
         tid = item  # 'item' is the tid here
-        row = get_row_by_tid(tid)
 
-        print(f"Processing tid: {tid}")
+        numbers = re.search(r'\d+', tid)
+        long_id = '000000' + numbers[0]
+        tess_exists = False
 
-        # getting info about the object
-        ra = row['ra']
-        dec = row['dec']
-        primary_transit = row['primary_transit']
-        secondary_transit = row['secondary_transit']
-        period = row['period']
+        tess_items = os.listdir(tess_directory_path)
 
-        min_period, max_period = round_to_decimal_place(period, decimal_places=2)
-        min_period -= 0.01
-        max_period += 0.01
+        for tess_item in tess_items:
+            if is_substring(tess_item, long_id):
+                tess_exists = True
+                break
 
-        fold_periods = automate_periodogram(tid, primary_transit, secondary_transit, 
-                                            min_period, max_period)
+        if tess_exists:
+            row = get_row_by_tid(tid)
 
-        detect_precession_bokeh(tid, fold_periods, primary_transit, secondary_transit)
+            print(f"Processing tid: {tid}")
+
+            # getting info about the object
+            ra = row['ra']
+            dec = row['dec']
+            primary_transit = row['primary_transit']
+            secondary_transit = row['secondary_transit']
+            period = row['period']
+
+            min_period, max_period = round_to_decimal_place(period, decimal_places=2)
+            min_period -= 0.01
+            max_period += 0.01
+
+            fold_periods = automate_periodogram(tid, primary_transit, secondary_transit, 
+                                                min_period, max_period)
+
+            detect_precession_bokeh(tid, fold_periods, primary_transit, secondary_transit)
