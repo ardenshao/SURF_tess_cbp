@@ -17,7 +17,7 @@ from bokeh.models import ColumnDataSource, HoverTool, Range1d
 warnings.filterwarnings('ignore')
 
 
-def filter_data_around_transits(df, transit_times, window=2):
+def filter_data_around_transits(df, transit_times, window):
     """
     Filters the DataFrame to include only rows where the jd value falls within the window around each transit time.
     
@@ -117,7 +117,20 @@ def chi_squared(tess_df, comparison_df, period, transit):
     return chi_squared_sum
 
 
-def automate_periodogram(tid, primary_transit, secondary_transit, min_period, max_period):
+def sigma_clip(df, sigma_lower, sigma_upper):
+    """Removes outlier data points using sigma-clipping."""
+    lc = lk.LightCurve(time=df['jd'], flux=df['flux'], flux_err=df['flux_err'])
+    lc = lc.remove_outliers(sigma_lower=sigma_lower, sigma_upper=sigma_upper)
+    
+    new_df = pd.DataFrame({
+            'jd': lc.time.value,
+            'flux': lc.flux.value,
+            'flux_err': lc.flux_err.value
+        })
+    return new_df
+
+
+def automate_periodogram(tid, primary_transit, secondary_transit, min_period, max_period, window):
     """
     Generates a primary periodogram for a given TESS ID, incorporating WASP and ASAS-SN data.
 
@@ -203,6 +216,7 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
     }
     
     asassn_df = pd.DataFrame(asassn_detrended)
+    asassn_df = sigma_clip(asassn_df, float('inf'), 3)
 
 
     for _ in os.listdir(base_dir):
@@ -239,6 +253,7 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
 
     # detrend wasp
     wasp_df = detrend_data(wasp_df)
+    wasp_df = sigma_clip(wasp_df, float('inf'), 3)
 
     # add labels
     tess_df['dataset_marker'] = 'TESS'
@@ -263,9 +278,9 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
             transit_times = np.concatenate((np.arange(transit, np.min(combined_df["jd"]) - period, -period), 
                                             np.arange(transit + period, np.max(combined_df["jd"]) + period, period)))
     
-            filtered_tess_df = filter_data_around_transits(tess_df, transit_times)
-            filtered_asassn_df = filter_data_around_transits(asassn_df, transit_times)
-            filtered_wasp_df = filter_data_around_transits(wasp_df, transit_times)
+            filtered_tess_df = filter_data_around_transits(tess_df, transit_times, window)
+            filtered_asassn_df = filter_data_around_transits(asassn_df, transit_times, window)
+            filtered_wasp_df = filter_data_around_transits(wasp_df, transit_times, window)
             
             chi_squared_sum = chi_squared(filtered_tess_df, filtered_asassn_df, period, transit) + chi_squared(filtered_tess_df, filtered_wasp_df, period, transit)
     
@@ -302,7 +317,8 @@ def automate_periodogram(tid, primary_transit, secondary_transit, min_period, ma
 def detect_precession_bokeh(tid, fold_periods, primary_transit, secondary_transit):
     
     df = pd.read_csv(f'output/{tid}/combined_data.csv')
-    marker_to_color = {'TESS': 'blue', 'ASAS-SN': 'green', 'SWASP': 'red'}
+    # category-10 colors
+    marker_to_color = {'TESS': '#1F77B4', 'ASAS-SN': '#2CA02C', 'SWASP': '#FF7F0E'}
     marker_to_shape = {'TESS': 'v', 'ASAS-SN': 'o', 'SWASP': 'x'}  # Define shapes here
     
     plots = []
@@ -429,6 +445,6 @@ if os.path.isdir(item_path) and item in no_kelt_tids:
             max_period += 0.01
 
             fold_periods = automate_periodogram(tid, primary_transit, secondary_transit, 
-                                                min_period, max_period)
+                                                min_period, max_period, window=0.1*period)
 
             detect_precession_bokeh(tid, fold_periods, primary_transit, secondary_transit)
